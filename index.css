@@ -1,109 +1,354 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+/* 
+ * Contact Page Styles
+ * Author: Dmytro Ipatii
+ * Description: Professional contact sharing page with elegant design
+ */
 
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto', sans-serif;
-    color: #fff;
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* CSS Custom Properties (Variables) */
+:root {
+  /* Color Palette */
+  --primary: #0f0f23;                /* Deep blue background */
+  --primary-dark: #080816;           /* Even darker blue */
+  --secondary: #1a1b3a;              /* Muted blue-purple */
+  --accent: #2a2c55;                 /* Medium blue */
+  --highlight: #ff6b6b;              /* Coral accent */
+  --text: #f0f0f5;                   /* Light text */
+  --text-secondary: #c0c0d0;         /* Secondary text */
+  --background: #050510;             /* Primary background */
+  --card-bg: rgba(40, 40, 70, 0.25); /* Glass card background */
+  --card-bg-hover: rgba(60, 60, 100, 0.35); /* Hover state */
+  
+  /* Additional colors */
+  --light: #f8f9fa;
+  --dark: #212529;
+  --gray: #6c757d;
+  --light-gray: #e9ecef;
+  --white: #ffffff;
+  
+  /* Shadow Effects */
+  --shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.5);
+  
+  /* Transitions & Animations */
+  --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --border-radius: 20px;
+  --border-radius-sm: 10px;
 }
 
+/* Universal Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base Typography & Layout */
+body, 
+html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  color: var(--text);
+  background: var(--background);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Background Animation Container */
 #vanta {
-    z-index: 0;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-
-}
-
-video {
   z-index: 0;
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;  
+  background: var(--background);
 }
 
+/* Main Content Container */
 main {
-    position: relative;
-    opacity: 0;
-    filter: blur(10px);
-    transition: opacity 2s ease-in-out, filter 2s ease-in-out;
-
-}
-header {
-    margin-top: 1em;
-    text-align: center;
-    display: flex;
-    flex-direction:column;
-    align-items: center;
-}
-
-header > img {
-    width: 6em;
-    height: 6em;
-    border-radius: 100%;
-    box-shadow:  rgb(28 32 93 / 24%) 0px 2px 12px 0px ;
-    object-fit: cover;
-}
-
-header > h1 {
-    display: inline-block;
-    font-size: 1em;
-    font-weight: bold;
-    border-radius: 1em;
-    background-color: #000a;
-    color: #fff;
-    padding: 0.3em 0.6em;
-    border: 1px solid #fffa;
-    backdrop-filter: blur(10px) saturate(160%) contrast(180%);
-    -webkit-backdrop-filter: blur(10px) saturate(160%) contrast(180%);
+  position: relative;
+  opacity: 0;
+  filter: blur(10px);
+  transition: opacity 2s ease-in-out, filter 2s ease-in-out;
+  z-index: 10;
+  width: 100%;
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  border-radius: 24px;
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
 }
 
-header > h2 {
-    display: inline-block;
-    font-size: 1em;
-    font-weight: bold;
-    border-radius: 1em;
-    background-color: #000a;
-    color: #fff;
-    padding: 0.3em 0.6em;
-    margin: 0 auto;
-    max-width: 384px;
-    border: 1px solid #fffa;
-    backdrop-filter: blur(10px) saturate(160%) contrast(180%);
-    -webkit-backdrop-filter: blur(10px) saturate(160%) contrast(180%);
+/* Animated Border Effect */
+main::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--highlight), var(--accent), var(--primary), var(--highlight));
+  background-size: 400%;
+  border-radius: 26px;
+  z-index: -1;
+  animation: gradientBorder 15s linear infinite;
 }
 
-ul {
-    box-sizing: border-box;
-    list-style: none;
-    margin: 0 auto;
-    padding: 2em;
-    max-width: 480px;
- }
+/* Gradient Border Animation */
+@keyframes gradientBorder {
+  0% { 
+    background-position: 0% 50%; 
+  }
+  50% { 
+    background-position: 100% 50%; 
+  }
+  100% { 
+    background-position: 0% 50%; 
+  }
+}
 
- ul > li {
-    background-color: #fffa;
-    backdrop-filter: blur(10px) saturate(160%) contrast(180%);
-    -webkit-backdrop-filter: blur(10px) saturate(160%) contrast(180%);
-    border-radius: 10em;
-    padding: 1em;
-    margin: 1.4em 0;
-    box-shadow: rgb(28 32 93 / 24%) 0px 2px 8px 0px;
- }
+/* Header Section Styling */
+.contact-header {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
 
- ul > li > a {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5em;
- }
- a {
-    color: black;
-    text-decoration: none;
- }
+/* Initials Avatar Styling */
+.initials-avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: 
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.15), transparent 60%),
+    linear-gradient(135deg, var(--accent), var(--highlight));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.2rem;
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: var(--white);
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.4),
+    inset 0 0 20px rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Conic Gradient Animation for Avatar */
+.initials-avatar::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    transparent,
+    var(--highlight),
+    transparent,
+    transparent,
+    transparent,
+    transparent,
+    transparent
+  );
+  animation: rotate 4s linear infinite;
+  z-index: -1;
+}
+
+/* Inner Shadow Effect for Avatar */
+.initials-avatar::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-shadow: 
+    inset 0 8px 20px rgba(255, 255, 255, 0.2),
+    inset 0 -8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover Effect for Initials Avatar */
+.initials-avatar:hover {
+  transform: scale(1.05) rotate(5deg);
+  box-shadow: 
+    0 15px 40px rgba(255, 107, 107, 0.5),
+    inset 0 0 25px rgba(255, 255, 255, 0.3);
+}
+
+/* Rotate Animation for Inner Gradient */
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Header Text Styles */
+.contact-header h1 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin: 0.5rem 0 0.5rem;
+  color: var(--text);
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.contact-header p {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+/* Contact Links Container */
+.contact-links-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1.3rem;
+}
+
+/* Contact Link Styles */
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 1.3rem;
+  padding: 1.3rem 1.6rem;
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  transition: var(--transition);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Hover State for Contact Links */
+.contact-link:hover {
+  color: var(--white);
+  transform: translateY(-5px);
+  background: var(--card-bg-hover);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 107, 107, 0.3);
+}
+
+/* Icon Styles */
+.contact-link i {
+  font-size: 1.6rem;
+  width: 32px;
+  text-align: center;
+  color: var(--highlight);
+  transition: var(--transition);
+}
+
+/* Hover Effect for Icons */
+.contact-link:hover i {
+  transform: scale(1.2);
+  color: #ff8e8e;
+}
+
+/* Footer Styles */
+footer {
+  text-align: center;
+  width: 100%;
+  padding: 2rem 0 0;
+  margin-top: 1rem;
+}
+
+footer p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
+
+/* Floating Animation */
+@keyframes float {
+  0% { 
+    transform: translateY(0px); 
+  }
+  50% { 
+    transform: translateY(-8px); 
+  }
+  100% { 
+    transform: translateY(0px); 
+  }
+}
+
+.floating {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* Professional Transitions */
+.contact-link {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  main {
+    padding: 1.5rem;
+    max-width: 95%;
+  }
+  
+  .initials-avatar {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .contact-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .contact-link {
+    padding: 1rem 1.2rem;
+    font-size: 0.95rem;
+  }
+  
+  .contact-link i {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .initials-avatar {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .contact-header h1 {
+    font-size: 1.6rem;
+  }
+  
+  .contact-link {
+    padding: 0.9rem 1rem;
+    font-size: 0.9rem;
+  }
+}
