@@ -33,95 +33,193 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <!-- External Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js" crossorigin="anonymous"></script>
-    
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" />
+    <!-- Three.js for Premium Background -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
-    <!-- Background Animation -->
-    <div id="vanta" aria-label="Animated background" role="img"></div>
+    <canvas id="three-canvas" aria-hidden="true"></canvas>
     
     <!-- Main Content -->
     <main>
         <!-- Contact Header Section -->
-        <header class="contact-header" role="banner">
-            <div class="initials-avatar floating" aria-label="Dmytro Ipatii initials avatar">
-                <span aria-hidden="true">DI</span>
-            </div>
-            
-            <!-- Primary Heading -->
+        <header class="contact-header">
+            <p class="tech-label">00 // SOFTWARE ENGINEER</p>
             <h1>Dmytro Ipatii</h1>
-            <p>Software Engineer Developer</p>
         </header>
 
-        <!-- Contact Links Section -->
-        <div class="contact-links-container" role="navigation" aria-label="Contact links">
-           
-            
-            <a href="https://www.linkedin.com/in/dmytro-ipatii-82aa04223/" class="contact-link" target="_blank" rel="noopener noreferrer" aria-label="Visit LinkedIn profile">
-                <i class="fab fa-linkedin" aria-hidden="true"></i>
-                <span>LinkedIn</span>
-            </a>
-            
-            <a href="https://twitter.com/DmytroIpatii" class="contact-link" target="_blank" rel="noopener noreferrer" aria-label="Visit Twitter profile">
-                <i class="fab fa-twitter" aria-hidden="true"></i>
-                <span>Twitter</span>
-            </a>
-            
-            <a href="https://github.com/monkeyking123g" class="contact-link" target="_blank" rel="noopener noreferrer" aria-label="Visit GitHub profile">
-                <i class="fab fa-github" aria-hidden="true"></i>
-                <span>GitHub</span>
-            </a>
-            
-            <a href="mailto:dimaipatii1994@gmail.com" class="contact-link" target="_blank" rel="noopener noreferrer" aria-label="Send email">
-                <i class="fas fa-envelope" aria-hidden="true"></i>
-                <span>Email</span>
-            </a>
-        </div>
+        <!-- Profile Section -->
+        <section class="bio-section" data-index="01">
+            <h2 class="tech-heading-small">// PROFILO</h2>
+            <p class="bio-text">
+                Software Engineer altamente motivato, orientato al miglioramento continuo e allo sviluppo di applicazioni <b>scalabili</b> e <b>performanti</b>. 
+                Esperto nel progettare architetture a microservizi e soluzioni AI avanzate (LangChain, RAG).
+            </p>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="bio-section" data-index="02">
+            <h2 class="tech-heading-small">// ESPERIENZA</h2>
+            <div class="exp-item">
+                <div class="exp-header">
+                    <span class="exp-title">Bettershop SRL</span>
+                    <span class="exp-date">2024 – Attuale</span>
+                </div>
+                <p class="exp-role">Software Engineer / Team Lead</p>
+                <ul class="exp-details">
+                    <li>Architettura a microservizi con Amazon SP-API & Ads API.</li>
+                    <li>Integrazione AI con LangChain (SQL Agent, RAG).</li>
+                    <li>Gestione e coordinamento di un team di sviluppatori.</li>
+                </ul>
+            </div>
+            <div class="exp-item">
+                <div class="exp-header">
+                    <span class="exp-title">Foorban SRL</span>
+                    <span class="exp-date">2023 – 2024</span>
+                </div>
+                <p class="exp-role">Full Stack Developer</p>
+                <ul class="exp-details">
+                    <li>Sviluppo end-to-end con React, Next.js e NestJS.</li>
+                    <li>Dashboard operative e monitoraggio logistica.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Tech Stack Section -->
+        <section class="bio-section" data-index="03">
+            <h2 class="tech-heading-small">// TECH STACK</h2>
+            <div class="tech-grid">
+                <div class="tech-cat">
+                    <p class="cat-label">Backend</p>
+                    <div class="tags"><span>Node.js</span><span>NestJS</span><span>Python</span><span>Django</span><span>GraphQL</span></div>
+                </div>
+                <div class="tech-cat">
+                    <p class="cat-label">AI / Data</p>
+                    <div class="tags"><span>LangChain</span><span>RAG</span><span>MySQL</span><span>Redis</span><span>MongoDB</span></div>
+                </div>
+                <div class="tech-cat">
+                    <p class="cat-label">Cloud</p>
+                    <div class="tags"><span>Docker</span><span>AWS</span><span>CI/CD</span><span>Nginx</span></div>
+                </div>
+                <div class="tech-cat">
+                    <p class="cat-label">Frontend</p>
+                    <div class="tags"><span>JavaScript</span><span>TypeScript</span><span>React</span><span>Next.js</span><span>Redux</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="bio-section" data-index="04">
+            <h2 class="tech-heading-small">// PROGETTI</h2>
+            <nav class="contact-links-container">
+                <a href="https://time-money.vercel.app/" class="contact-link" target="_blank" rel="noopener noreferrer" data-label="Time Money App">
+                    <span>Time Money App // React, Node, Docker</span>
+                </a>
+                <a href="https://github.com/monkeyking123g/sound_cloud" class="contact-link" target="_blank" rel="noopener noreferrer" data-label="SoundCloud Clone">
+                    <span>SoundCloud Clone // Django, PostgreSQL, JWT</span>
+                </a>
+                <a href="https://dmytro-ipatt-fight-game.netlify.app/" class="contact-link" target="_blank" rel="noopener noreferrer" data-label="2D Fighting Game">
+                    <span>Fighting Game // JS, Canvas, Physics</span>
+                </a>
+            </nav>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="bio-section" data-index="05">
+            <h2 class="tech-heading-small">// CONTATTI</h2>
+            <nav class="contact-links-container">
+                <a href="https://www.linkedin.com/in/dmytro-ipatii-82aa04223/" class="contact-link" target="_blank" rel="noopener noreferrer" data-label="LinkedIn">
+                    <span>LINKEDIN</span>
+                </a>
+                <a href="https://github.com/monkeyking123g" class="contact-link" target="_blank" rel="noopener noreferrer" data-label="GitHub">
+                    <span>GITHUB</span>
+                </a>
+                <a href="mailto:dimaipatii1994@gmail.com" class="contact-link" target="_blank" rel="noopener noreferrer" data-label="Email">
+                    <span>EMAIL</span>
+                </a>
+            </nav>
+        </section>
         
         <!-- Footer Section -->
-        <footer role="contentinfo">
-            <p>&copy; 2023 Dmytro Ipatii. All rights reserved.</p>
+        <footer>
+            <p>// 2024 Dmytro Ipatii. Built for high performance.</p>
         </footer>
     </main>
     
     <!-- JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Initialize VANTA.js background effect
-            if (document.getElementById('vanta')) {
-                VANTA.BIRDS({
-                    el: "#vanta",
-                    mouseControls: true,
-                    touchControls: true,
-                    gyroControls: false,
-                    minHeight: 200.00,
-                    minWidth: 200.00,
-                    scale: 1.00,
-                    scaleMobile: 1.00,
-                    backgroundColor: 0x0f0f23,
-                    color1: 0x2a2c55,
-                    color2: 0x4a4c75,
-                    birdSize: 0.70,
-                    wingSpan: 18.00,
-                    speedLimit: 1.00,
-                    separation: 50.00,
-                    alignment: 35.00,
-                    cohesion: 35.00,
-                    quantity: 2.50
-                })
+            // Scroll Reveal Animation (Subtle entry)
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.contact-link, .exp-item, .tech-cat').forEach((el, index) => {
+                el.classList.add('reveal');
+                el.style.transitionDelay = `${index * 0.05}s`;
+                observer.observe(el);
+            });
+            // Three.js Technical Particle Grid
+            const canvas = document.getElementById('three-canvas');
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+
+            const particlesGeometry = new THREE.BufferGeometry();
+            const particlesCount = 200;
+            const posArray = new Float32Array(particlesCount * 3);
+
+            for(let i = 0; i < particlesCount * 3; i++) {
+                posArray[i] = (Math.random() - 0.5) * 10;
             }
 
-            // Fade in content after initialization
-            setTimeout(() => {
-                const main = document.querySelector('main');
-                if (main) {
-                    main.style.opacity = 1;
-                    main.style.filter = 'blur(0px)';
-                }
-            }, 1500);
+            particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+            const particlesMaterial = new THREE.PointsMaterial({
+                size: 0.015,
+                color: 0x00A3FF,
+                transparent: true,
+                opacity: 0.5
+            });
+
+            const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+            scene.add(particlesMesh);
+            camera.position.z = 3;
+
+            // Mouse Interaction for Parallax
+            let mouseX = 0;
+            let mouseY = 0;
+            document.addEventListener('mousemove', (e) => {
+                mouseX = (e.clientX / window.innerWidth - 0.5) * 0.5;
+                mouseY = (e.clientY / window.innerHeight - 0.5) * 0.5;
+            });
+
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+
+            function animate() {
+                requestAnimationFrame(animate);
+                particlesMesh.rotation.y += 0.001;
+                particlesMesh.rotation.x += 0.0005;
+                
+                // Subtle Mouse Parallax
+                particlesMesh.position.x += (mouseX - particlesMesh.position.x) * 0.05;
+                particlesMesh.position.y += (-mouseY - particlesMesh.position.y) * 0.05;
+
+                renderer.render(scene, camera);
+            }
+            animate();
         });
     </script>
 </body>
